@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../models/weather_model.dart';
 import '../services/weather_service.dart';
+import '../services/geocoding_service.dart';
 import '../utils/weather_helper.dart';
 import '../utils/color_helper.dart';
+import '../utils/country_helper.dart';
 import '../widgets/weather_card.dart';
 import '../widgets/weather_detail_item.dart';
 import '../widgets/animated_weather_icon.dart';
@@ -25,6 +27,7 @@ class _WeatherPageState extends State<WeatherPage> {
   List<WeatherModel>? _forecasts;
   bool _isLoading = true;
   String? _error;
+  String _countryCode = '';
 
   @override
   void initState() {
@@ -39,6 +42,12 @@ class _WeatherPageState extends State<WeatherPage> {
     });
 
     try {
+      // Récupérer le code pays
+      final cityData = await GeocodingService.getCityCoordinates(widget.cityName);
+      if (cityData != null && cityData['countryCode'] != null) {
+        _countryCode = cityData['countryCode'];
+      }
+      
       final current = await _weatherService.getCurrentWeather(widget.cityName);
       final forecast = await _weatherService.getForecast(widget.cityName);
       
@@ -244,14 +253,27 @@ class _WeatherPageState extends State<WeatherPage> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                Text(
-                  _currentWeather!.cityName,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                  ),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    if (_countryCode.isNotEmpty) ...[
+                      Text(
+                        CountryHelper.getFlagEmoji(_countryCode),
+                        style: const TextStyle(fontSize: 28),
+                      ),
+                      const SizedBox(width: 8),
+                    ],
+                    Text(
+                      _currentWeather!.cityName,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
                 ),
+                const SizedBox(height: 2),
                 Text(
                   WeatherHelper.getDayName(DateTime.now()),
                   style: TextStyle(

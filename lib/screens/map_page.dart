@@ -103,7 +103,11 @@ class _MapPageState extends State<MapPage> {
 
   Future<LatLng?> _getCityCoordinates(String cityName) async {
     // Utiliser le service de géocodage Google Maps
-    return await GeocodingService.getCityCoordinates(cityName);
+    final result = await GeocodingService.getCityCoordinates(cityName);
+    if (result != null && result['coordinates'] != null) {
+      return result['coordinates'] as LatLng;
+    }
+    return null;
   }
 
   // Gérer le clic sur la carte

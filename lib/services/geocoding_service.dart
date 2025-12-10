@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import '../utils/country_helper.dart';
 
 class GeocodingService {
   static const String apiKey = 'AIzaSyDpzM3RwHngFx6Js3qpFEACTT3urCgsEcQ';
@@ -55,7 +56,11 @@ class GeocodingService {
       final normalizedCity = cityName.toLowerCase().trim();
       if (_cityDatabase.containsKey(normalizedCity)) {
         debugPrint('✅ Ville trouvée dans la base locale: $cityName');
-        return _cityDatabase[normalizedCity];
+        final countryCode = CountryHelper.getCountryCodeFromCity(normalizedCity) ?? '';
+        return {
+          'coordinates': _cityDatabase[normalizedCity],
+          'countryCode': countryCode,
+        };
       }
 
       // Ensuite, essayer avec l'API Google
@@ -75,9 +80,24 @@ class GeocodingService {
         if (data['status'] == 'OK' && data['results'].isNotEmpty) {
           final location = data['results'][0]['geometry']['location'];
           final foundCity = data['results'][0]['formatted_address'];
+          
+          // Extraire le code pays
+          String countryCode = '';
+          for (var component in data['results'][0]['address_components']) {
+            if (component['types'].contains('country')) {
+              countryCode = component['short_name'];
+              break;
+            }
+          }
+          
           debugPrint('✅ Ville trouvée via API: $foundCity');
           debugPrint('📍 Coordonnées: ${location['lat']}, ${location['lng']}');
-          return LatLng(location['lat'], location['lng']);
+          debugPrint('🌍 Pays: $countryCode');
+          
+          return {
+            'coordinates': LatLng(location['lat'], location['lng']),
+            'countryCode': countryCode,
+          };
         } else if (data['status'] == 'ZERO_RESULTS') {
           debugPrint('❌ Aucun résultat pour: $cityName');
         } else if (data['status'] == 'REQUEST_DENIED') {
