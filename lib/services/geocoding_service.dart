@@ -47,8 +47,9 @@ class GeocodingService {
     'lisbon': LatLng(38.7223, -9.1393),
   };
 
-  /// Obtenir les coordonnées d'une ville à partir de son nom
-  static Future<LatLng?> getCityCoordinates(String cityName) async {
+  /// Obtenir les coordonnées et le code pays d'une ville à partir de son nom
+  /// Retourne un Map avec 'coordinates' (LatLng) et 'countryCode' (String)
+  static Future<Map<String, dynamic>?> getCityCoordinates(String cityName) async {
     try {
       // D'abord, vérifier dans la base de données locale
       final normalizedCity = cityName.toLowerCase().trim();
