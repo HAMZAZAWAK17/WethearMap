@@ -68,25 +68,31 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
         final cityName = locationData['cityName'] as String;
         
         // Naviguer vers la page météo
-        Navigator.pushReplacement(
+        Navigator.push(
           context,
           MaterialPageRoute(
             builder: (context) => WeatherPage(cityName: cityName),
           ),
         );
       } else if (mounted) {
-        // Si la localisation échoue, aller à la carte
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => const MapPage()),
+        // Afficher un message d'erreur
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Impossible de détecter votre localisation. Vérifiez vos permissions GPS.'),
+            backgroundColor: Colors.orange,
+            duration: Duration(seconds: 3),
+          ),
         );
       }
     } catch (e) {
       debugPrint('Erreur lors de la détection de localisation: $e');
       if (mounted) {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => const MapPage()),
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Erreur: ${e.toString()}'),
+            backgroundColor: Colors.red,
+            duration: const Duration(seconds: 3),
+          ),
         );
       }
     } finally {

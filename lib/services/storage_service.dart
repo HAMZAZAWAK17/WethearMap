@@ -103,7 +103,7 @@ class StorageService {
   /// Obtenir la préférence de localisation automatique
   static Future<bool> isAutoLocationEnabled() async {
     final prefs = await SharedPreferences.getInstance();
-    return prefs.getBool(_autoLocationKey) ?? true; // Activé par défaut
+    return prefs.getBool(_autoLocationKey) ?? false; // Désactivé par défaut pour éviter les erreurs
   }
 
   /// Définir la préférence de localisation automatique
