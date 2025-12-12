@@ -48,7 +48,7 @@ class ThemeProvider extends ChangeNotifier {
         foregroundColor: Colors.white,
         elevation: 0,
       ),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         elevation: 2,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
@@ -74,7 +74,7 @@ class ThemeProvider extends ChangeNotifier {
         foregroundColor: Colors.white,
         elevation: 0,
       ),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         elevation: 4,
         color: const Color(0xFF1e1e1e),
         shape: RoundedRectangleBorder(
