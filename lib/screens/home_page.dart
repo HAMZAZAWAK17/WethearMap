@@ -20,7 +20,6 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
   late AnimationController _controller;
   late Animation<double> _fadeAnimation;
   late Animation<Offset> _slideAnimation;
-  bool _isCheckingLocation = false;
 
   @override
   void initState() {
@@ -40,68 +39,6 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
     ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOut));
 
     _controller.forward();
-    
-    // Vérifier si la localisation automatique est activée
-    _checkAutoLocation();
-  }
-
-  Future<void> _checkAutoLocation() async {
-    final isEnabled = await StorageService.isAutoLocationEnabled();
-    if (isEnabled && mounted) {
-      // Attendre un peu pour que l'animation se termine
-      await Future.delayed(const Duration(milliseconds: 2000));
-      if (mounted) {
-        _detectLocationAndShowWeather();
-      }
-    }
-  }
-
-  Future<void> _detectLocationAndShowWeather() async {
-    setState(() {
-      _isCheckingLocation = true;
-    });
-
-    try {
-      final locationData = await LocationService.getCurrentLocation();
-      
-      if (locationData != null && mounted) {
-        final cityName = locationData['cityName'] as String;
-        
-        // Naviguer vers la page météo
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => WeatherPage(cityName: cityName),
-          ),
-        );
-      } else if (mounted) {
-        // Afficher un message d'erreur
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Impossible de détecter votre localisation. Vérifiez vos permissions GPS.'),
-            backgroundColor: Colors.orange,
-            duration: Duration(seconds: 3),
-          ),
-        );
-      }
-    } catch (e) {
-      debugPrint('Erreur lors de la détection de localisation: $e');
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('Erreur: ${e.toString()}'),
-            backgroundColor: Colors.red,
-            duration: const Duration(seconds: 3),
-          ),
-        );
-      }
-    } finally {
-      if (mounted) {
-        setState(() {
-          _isCheckingLocation = false;
-        });
-      }
-    }
   }
 
   @override
