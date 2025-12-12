@@ -252,34 +252,6 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
               ),
             ),
           ),
-          
-          // Bouton de localisation en haut à gauche
-          Positioned(
-            top: 16,
-            left: 16,
-            child: SafeArea(
-              child: CircleAvatar(
-                backgroundColor: AppColors.white20,
-                child: IconButton(
-                  icon: _isCheckingLocation
-                      ? const SizedBox(
-                          width: 20,
-                          height: 20,
-                          child: CircularProgressIndicator(
-                            strokeWidth: 2,
-                            valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-                          ),
-                        )
-                      : const FaIcon(
-                          FontAwesomeIcons.locationCrosshairs,
-                          color: Colors.white,
-                          size: 20,
-                        ),
-                  onPressed: _isCheckingLocation ? null : _detectLocationAndShowWeather,
-                ),
-              ),
-            ),
-          ),
         ],
       ),
     );
