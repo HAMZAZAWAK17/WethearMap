@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:share_plus/share_plus.dart';
 import '../models/weather_model.dart';
 import '../services/weather_service.dart';
 import '../services/geocoding_service.dart';
+import '../services/storage_service.dart';
 import '../utils/weather_helper.dart';
 import '../utils/color_helper.dart';
 import '../utils/country_helper.dart';
@@ -28,11 +30,66 @@ class _WeatherPageState extends State<WeatherPage> {
   bool _isLoading = true;
   String? _error;
   String _countryCode = '';
+  bool _isFavorite = false;
 
   @override
   void initState() {
     super.initState();
     _loadWeatherData();
+    _checkFavorite();
+  }
+
+  Future<void> _checkFavorite() async {
+    final isFav = await StorageService.isFavorite(widget.cityName);
+    setState(() {
+      _isFavorite = isFav;
+    });
+  }
+
+  Future<void> _toggleFavorite() async {
+    if (_isFavorite) {
+      await StorageService.removeFavoriteCity(widget.cityName);
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('${widget.cityName} retiré des favoris'),
+            backgroundColor: Colors.orange,
+            behavior: SnackBarBehavior.floating,
+          ),
+        );
+      }
+    } else {
+      await StorageService.addFavoriteCity(widget.cityName);
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('${widget.cityName} ajouté aux favoris'),
+            backgroundColor: Colors.green,
+            behavior: SnackBarBehavior.floating,
+          ),
+        );
+      }
+    }
+    setState(() {
+      _isFavorite = !_isFavorite;
+    });
+  }
+
+  void _shareWeather() {
+    if (_currentWeather == null) return;
+
+    final text = '''
+🌤️ Météo à ${_currentWeather!.cityName}
+
+🌡️ Température: ${_currentWeather!.temperature.round()}°C
+📝 ${_currentWeather!.description}
+💨 Vent: ${_currentWeather!.windSpeed.round()} km/h
+💧 Humidité: ${_currentWeather!.humidity}%
+
+Partagé depuis Météo App
+''';
+
+    Share.share(text);
   }
 
   Future<void> _loadWeatherData() async {
@@ -283,6 +340,27 @@ class _WeatherPageState extends State<WeatherPage> {
                 ),
               ],
             ),
+          const SizedBox(width: 10),
+          CircleAvatar(
+            backgroundColor: AppColors.white20,
+            child: IconButton(
+              icon: FaIcon(
+                _isFavorite ? FontAwesomeIcons.solidStar : FontAwesomeIcons.star,
+                color: _isFavorite ? Colors.amber : Colors.white,
+                size: 18,
+              ),
+              onPressed: _toggleFavorite,
+            ),
+          ),
+          const SizedBox(width: 10),
+          CircleAvatar(
+            backgroundColor: AppColors.white20,
+            child: IconButton(
+              icon: const FaIcon(FontAwesomeIcons.shareNodes, 
+                color: Colors.white, size: 18),
+              onPressed: _shareWeather,
+            ),
+          ),
           const SizedBox(width: 10),
           CircleAvatar(
             backgroundColor: AppColors.white20,
