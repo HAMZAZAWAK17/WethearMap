@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:geolocator/geolocator.dart';
 import '../utils/color_helper.dart';
 import '../services/geocoding_service.dart';
+import '../services/storage_service.dart';
 import 'weather_page.dart';
 
 class MapPage extends StatefulWidget {
@@ -142,13 +143,18 @@ class _MapPageState extends State<MapPage> {
     return fullAddress;
   }
 
-  void _showWeather(String cityName) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => WeatherPage(cityName: cityName),
-      ),
-    );
+  void _showWeather(String cityName) async {
+    // Ajouter à l'historique
+    await StorageService.addToHistory(cityName);
+    
+    if (mounted) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => WeatherPage(cityName: cityName),
+        ),
+      );
+    }
   }
 
   // Obtenir la localisation actuelle de l'utilisateur

@@ -3,11 +3,11 @@ import 'package:http/http.dart' as http;
 import '../models/weather_model.dart';
 
 class WeatherService {
-  // IMPORTANT: Remplacez par votre clé API OpenWeatherMap
+
   static const String apiKey = 'c60bab482b1d4069d6adc6128fa16af2';
   static const String baseUrl = 'https://api.openweathermap.org/data/2.5';
 
-  // Obtenir la météo actuelle pour une ville
+
   Future<WeatherModel> getCurrentWeather(String cityName) async {
     final url = '$baseUrl/weather?q=$cityName&appid=$apiKey&units=metric&lang=fr';
     
@@ -25,7 +25,7 @@ class WeatherService {
     }
   }
 
-  // Obtenir les prévisions sur 3 jours
+
   Future<ForecastModel> getForecast(String cityName) async {
     final url = '$baseUrl/forecast?q=$cityName&appid=$apiKey&units=metric&lang=fr';
     

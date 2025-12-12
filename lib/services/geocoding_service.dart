@@ -8,8 +8,7 @@ class GeocodingService {
   static const String apiKey = 'AIzaSyDpzM3RwHngFx6Js3qpFEACTT3urCgsEcQ';
   static const String baseUrl = 'https://maps.googleapis.com/maps/api/geocode/json';
 
-  // Base de données de secours pour les villes courantes
-  // Utilisée si la Geocoding API n'est pas activée
+
   static final Map<String, LatLng> _cityDatabase = {
     // Maroc
     'casablanca': LatLng(33.5731, -7.5898),

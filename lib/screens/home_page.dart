@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
 import '../utils/color_helper.dart';
+import '../services/location_service.dart';
+import '../services/storage_service.dart';
 import 'map_page.dart';
+import 'settings_page.dart';
+import 'weather_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -15,6 +20,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
   late AnimationController _controller;
   late Animation<double> _fadeAnimation;
   late Animation<Offset> _slideAnimation;
+  bool _isCheckingLocation = false;
 
   @override
   void initState() {
@@ -34,6 +40,62 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
     ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOut));
 
     _controller.forward();
+    
+    // Vérifier si la localisation automatique est activée
+    _checkAutoLocation();
+  }
+
+  Future<void> _checkAutoLocation() async {
+    final isEnabled = await StorageService.isAutoLocationEnabled();
+    if (isEnabled && mounted) {
+      // Attendre un peu pour que l'animation se termine
+      await Future.delayed(const Duration(milliseconds: 2000));
+      if (mounted) {
+        _detectLocationAndShowWeather();
+      }
+    }
+  }
+
+  Future<void> _detectLocationAndShowWeather() async {
+    setState(() {
+      _isCheckingLocation = true;
+    });
+
+    try {
+      final locationData = await LocationService.getCurrentLocation();
+      
+      if (locationData != null && mounted) {
+        final cityName = locationData['cityName'] as String;
+        
+        // Naviguer vers la page météo
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => WeatherPage(cityName: cityName),
+          ),
+        );
+      } else if (mounted) {
+        // Si la localisation échoue, aller à la carte
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const MapPage()),
+        );
+      }
+    } catch (e) {
+      debugPrint('Erreur lors de la détection de localisation: $e');
+      if (mounted) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const MapPage()),
+        );
+      }
+    } finally {
+      if (mounted) {
+        setState(() {
+          _isCheckingLocation = false;
+        });
+      }
+    }
   }
 
   @override
@@ -45,99 +107,146 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Color(0xFF1e3c72),
-              Color(0xFF2a5298),
-              Color(0xFF7e22ce),
-              Color(0xFFc026d3),
-            ],
-            stops: [0.0, 0.3, 0.7, 1.0],
-          ),
-        ),
-        child: SafeArea(
-          child: Center(
-            child: FadeTransition(
-              opacity: _fadeAnimation,
-              child: SlideTransition(
-                position: _slideAnimation,
-                child: Padding(
-                  padding: const EdgeInsets.all(24.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      // Icône météo animée
-                      Container(
-                        padding: const EdgeInsets.all(30),
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: AppColors.white10,
-                          boxShadow: [
-                            BoxShadow(
-                              color: AppColors.white20,
-                              blurRadius: 30,
-                              spreadRadius: 10,
+      body: Stack(
+        children: [
+          Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  Color(0xFF1e3c72),
+                  Color(0xFF2a5298),
+                  Color(0xFF7e22ce),
+                  Color(0xFFc026d3),
+                ],
+                stops: [0.0, 0.3, 0.7, 1.0],
+              ),
+            ),
+            child: SafeArea(
+              child: Center(
+                child: FadeTransition(
+                  opacity: _fadeAnimation,
+                  child: SlideTransition(
+                    position: _slideAnimation,
+                    child: Padding(
+                      padding: const EdgeInsets.all(24.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          // Icône météo animée
+                          Container(
+                            padding: const EdgeInsets.all(30),
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: AppColors.white10,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: AppColors.white20,
+                                  blurRadius: 30,
+                                  spreadRadius: 10,
+                                ),
+                              ],
                             ),
-                          ],
-                        ),
-                        child: const FaIcon(
-                          FontAwesomeIcons.cloudSun,
-                          size: 120,
-                          color: Colors.white,
-                        ),
-                      ),
-                      const SizedBox(height: 50),
-
-                      // Titre animé
-                      DefaultTextStyle(
-                        style: const TextStyle(
-                          fontSize: 48,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          letterSpacing: 2,
-                        ),
-                        child: AnimatedTextKit(
-                          animatedTexts: [
-                            TypewriterAnimatedText(
-                              'Météo',
-                              speed: const Duration(milliseconds: 200),
+                            child: const FaIcon(
+                              FontAwesomeIcons.cloudSun,
+                              size: 120,
+                              color: Colors.white,
                             ),
-                          ],
-                          totalRepeatCount: 1,
-                        ),
+                          ),
+                          const SizedBox(height: 50),
+
+                          // Titre animé
+                          DefaultTextStyle(
+                            style: const TextStyle(
+                              fontSize: 48,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                              letterSpacing: 2,
+                            ),
+                            child: AnimatedTextKit(
+                              animatedTexts: [
+                                TypewriterAnimatedText(
+                                  'Météo',
+                                  speed: const Duration(milliseconds: 200),
+                                ),
+                              ],
+                              totalRepeatCount: 1,
+                            ),
+                          ),
+                          const SizedBox(height: 20),
+
+                          // Sous-titre
+                          Text(
+                            'Votre assistant météo personnel',
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: AppColors.white90,
+                              letterSpacing: 1,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                          const SizedBox(height: 60),
+
+                          // Indicateur de chargement ou bouton
+                          if (_isCheckingLocation)
+                            Column(
+                              children: [
+                                const CircularProgressIndicator(
+                                  valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                                ),
+                                const SizedBox(height: 20),
+                                Text(
+                                  'Détection de votre position...',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    color: AppColors.white90,
+                                  ),
+                                ),
+                              ],
+                            )
+                          else
+                            _buildGlowingButton(context),
+                          
+                          const SizedBox(height: 40),
+
+                          // Fonctionnalités
+                          if (!_isCheckingLocation) _buildFeatures(),
+                        ],
                       ),
-                      const SizedBox(height: 20),
-
-                      // Sous-titre
-                      Text(
-                        'Votre assistant météo personnel',
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: AppColors.white90,
-                          letterSpacing: 1,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                      const SizedBox(height: 60),
-
-                      // Bouton d'accès
-                      _buildGlowingButton(context),
-                      
-                      const SizedBox(height: 40),
-
-                      // Fonctionnalités
-                      _buildFeatures(),
-                    ],
+                    ),
                   ),
                 ),
               ),
             ),
           ),
-        ),
+          
+          // Bouton paramètres en haut à droite
+          SafeArea(
+            child: Positioned(
+              top: 16,
+              right: 16,
+              child: CircleAvatar(
+                backgroundColor: AppColors.white20,
+                child: IconButton(
+                  icon: const FaIcon(
+                    FontAwesomeIcons.gear,
+                    color: Colors.white,
+                    size: 20,
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SettingsPage(),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
