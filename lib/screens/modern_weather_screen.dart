@@ -60,10 +60,10 @@ class _ModernWeatherScreenState extends State<ModernWeatherScreen>
     try {
       final weatherService = WeatherService();
       
-      // Charger la météo actuelle
-      final currentData = await weatherService.getCurrentWeather(widget.cityName);
+      // Charger la météo actuelle avec le modèle enrichi
+      final currentData = await weatherService.getCurrentWeatherEnhanced(widget.cityName);
       
-      // Charger les prévisions horaires (simulées pour le moment)
+      // Charger les prévisions horaires
       final hourlyData = await weatherService.getHourlyForecast(widget.cityName);
 
       setState(() {

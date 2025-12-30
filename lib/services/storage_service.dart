@@ -1,5 +1,6 @@
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
+import '../models/weather_model_enhanced.dart';
 
 /// Service pour gérer le stockage local des données
 class StorageService {
@@ -7,6 +8,7 @@ class StorageService {
   static const String _historyKey = 'search_history';
   static const String _themeKey = 'theme_mode';
   static const String _autoLocationKey = 'auto_location';
+  static const String _savedCitiesKey = 'saved_cities';
 
   /// Obtenir les villes favorites
   static Future<List<String>> getFavoriteCities() async {
@@ -110,5 +112,54 @@ class StorageService {
   static Future<void> setAutoLocationEnabled(bool enabled) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setBool(_autoLocationKey, enabled);
+  }
+
+  // ========== GESTION DES VILLES SAUVEGARDÉES (NOUVEAU) ==========
+
+  /// Obtenir la liste des villes sauvegardées
+  static Future<List<SavedCity>> getSavedCities() async {
+    final prefs = await SharedPreferences.getInstance();
+    final citiesJson = prefs.getString(_savedCitiesKey);
+    
+    if (citiesJson == null) {
+      // Retourner quelques villes par défaut
+      return [
+        SavedCity(name: 'Paris'),
+        SavedCity(name: 'London'),
+        SavedCity(name: 'New York'),
+      ];
+    }
+    
+    try {
+      final List<dynamic> citiesList = json.decode(citiesJson);
+      return citiesList.map((cityJson) => SavedCity.fromJson(cityJson)).toList();
+    } catch (e) {
+      return [];
+    }
+  }
+
+  /// Sauvegarder la liste des villes
+  static Future<void> saveCities(List<SavedCity> cities) async {
+    final prefs = await SharedPreferences.getInstance();
+    final citiesJson = cities.map((city) => city.toJson()).toList();
+    await prefs.setString(_savedCitiesKey, json.encode(citiesJson));
+  }
+
+  /// Ajouter une ville sauvegardée
+  static Future<void> addSavedCity(SavedCity city) async {
+    final cities = await getSavedCities();
+    
+    // Vérifier si la ville n'existe pas déjà
+    if (!cities.any((c) => c.name.toLowerCase() == city.name.toLowerCase())) {
+      cities.add(city);
+      await saveCities(cities);
+    }
+  }
+
+  /// Supprimer une ville sauvegardée
+  static Future<void> removeSavedCity(String cityName) async {
+    final cities = await getSavedCities();
+    cities.removeWhere((c) => c.name.toLowerCase() == cityName.toLowerCase());
+    await saveCities(cities);
   }
 }
