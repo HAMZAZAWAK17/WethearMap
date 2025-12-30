@@ -1,257 +1,250 @@
-# Liste de Villes Testées - Application Météo
+<div align="center">
 
-## 🌍 Villes du Monde Entier
+<!-- Dynamic Header Banner -->
+<img src="https://capsule-render.vercel.app/api?type=waving&height=300&color=gradient&customColorList=6,11,20&text=Hamza%20Ez-Zouek&fontSize=70&fontAlign=50&fontAlignY=40&desc=Fullstack%20%7C%20Mobile%20Developer%20%7C%20Tech%20Innovator&descSize=20&descAlign=50&descAlignY=60&animation=twinkling" width="100%" alt="Header"/>
 
-### Maroc 🇲🇦
-- ✅ Casablanca
-- ✅ Rabat
-- ✅ Marrakech
-- ✅ Fes
-- ✅ Tangier
-- ✅ Agadir
-- ✅ Meknes
-- ✅ Oujda
-- ✅ Kenitra
-- ✅ Tetouan
+<!-- Animated Typing Text -->
+<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=28&duration=3000&pause=1000&color=00E5FF&center=true&vCenter=true&multiline=false&repeat=true&random=false&width=900&height=100&lines=Building+Next-Gen+Digital+Solutions;Fullstack+and+Mobile+Engineering+Expert;Passionate+About+Innovation+and+Performance;Transforming+Ideas+into+Reality" alt="Typing SVG" /></a>
 
-**Astuce :** Utilisez les noms en anglais pour de meilleurs résultats
+<br/>
 
-### France 🇫🇷
-- ✅ Paris
-- ✅ Lyon
-- ✅ Marseille
-- ✅ Nice
-- ✅ Bordeaux
-- ✅ Toulouse
-- ✅ Nantes
-- ✅ Strasbourg
-- ✅ Lille
-- ✅ Rennes
+<!-- Enhanced Status Badges -->
+<p align="center">
+  <img src="https://img.shields.io/badge/🚀-Available_For_Hire-success?style=for-the-badge&logo=handshake&logoColor=white&labelColor=000000" alt="Status"/>
+  <img src="https://img.shields.io/badge/📍-Casablanca,_Morocco-0099ff?style=for-the-badge&logo=google-maps&logoColor=white&labelColor=000000" alt="Location"/>
+  <img src="https://img.shields.io/badge/💼-Open_To_Collaborate-blueviolet?style=for-the-badge&logo=github&logoColor=white&labelColor=000000" alt="Collaboration"/>
+</p>
 
-### Europe 🇪🇺
-- ✅ London (Royaume-Uni)
-- ✅ Berlin (Allemagne)
-- ✅ Madrid (Espagne)
-- ✅ Rome (Italie)
-- ✅ Amsterdam (Pays-Bas)
-- ✅ Brussels (Belgique)
-- ✅ Vienna (Autriche)
-- ✅ Prague (République Tchèque)
-- ✅ Athens (Grèce)
-- ✅ Lisbon (Portugal)
+<!-- Profile Stats -->
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=HAMZAZAWAK17&color=00D9FF&style=for-the-badge&label=PROFILE+VIEWS" alt="Profile Views"/>
+  <img src="https://img.shields.io/github/followers/HAMZAZAWAK17?style=for-the-badge&color=22c55e&labelColor=000000&logo=github" alt="Followers"/>
+  <img src="https://img.shields.io/github/stars/HAMZAZAWAK17?style=for-the-badge&color=FFD700&labelColor=000000&logo=github" alt="Stars"/>
+</p>
 
-### Amérique 🌎
-- ✅ New York
-- ✅ Los Angeles
-- ✅ Chicago
-- ✅ Miami
-- ✅ Toronto (Canada)
-- ✅ Montreal (Canada)
-- ✅ Mexico City (Mexique)
-- ✅ Buenos Aires (Argentine)
-- ✅ Rio de Janeiro (Brésil)
-- ✅ Lima (Pérou)
+</div>
 
-### Asie 🌏
-- ✅ Tokyo (Japon)
-- ✅ Beijing (Chine)
-- ✅ Shanghai (Chine)
-- ✅ Seoul (Corée du Sud)
-- ✅ Bangkok (Thaïlande)
-- ✅ Singapore (Singapour)
-- ✅ Dubai (EAU)
-- ✅ Mumbai (Inde)
-- ✅ Delhi (Inde)
-- ✅ Istanbul (Turquie)
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
 
-### Afrique 🌍
-- ✅ Cairo (Égypte)
-- ✅ Lagos (Nigeria)
-- ✅ Johannesburg (Afrique du Sud)
-- ✅ Nairobi (Kenya)
-- ✅ Accra (Ghana)
-- ✅ Tunis (Tunisie)
-- ✅ Algiers (Algérie)
-- ✅ Dakar (Sénégal)
-- ✅ Addis Ababa (Éthiopie)
-- ✅ Kinshasa (RD Congo)
+## 🌐 Connect With Me
 
-### Océanie 🌊
-- ✅ Sydney (Australie)
-- ✅ Melbourne (Australie)
-- ✅ Auckland (Nouvelle-Zélande)
-- ✅ Brisbane (Australie)
-- ✅ Perth (Australie)
+<div align="center">
 
-## 📝 Conseils pour la Recherche
+<table>
+  <tr>
+    <td align="center" width="140">
+      <a href="https://github.com/HAMZAZAWAK17">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="65" height="65" alt="GitHub"/>
+        <br><strong>GitHub</strong>
+      </a>
+    </td>
+    <td align="center" width="140">
+      <a href="https://gitlab.com/HAMZAZAWAK17">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg" width="65" height="65" alt="GitLab"/>
+        <br><strong>GitLab</strong>
+      </a>
+    </td>
+    <td align="center" width="140">
+      <a href="https://linkedin.com/in/hamza-ezzouek">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" width="65" height="65" alt="LinkedIn"/>
+        <br><strong>LinkedIn</strong>
+      </a>
+    </td>
+    <td align="center" width="140">
+      <a href="mailto:ezzouekhamza2411@gmail.com">
+        <img src="https://img.icons8.com/fluency/96/gmail-new.png" width="65" height="65" alt="Gmail"/>
+        <br><strong>Email</strong>
+      </a>
+    </td>
+    <td align="center" width="140">
+      <a href="http://portfolio-last-version-nu.vercel.app/">
+        <img src="https://img.icons8.com/fluency/96/domain.png" width="65" height="65" alt="Portfolio"/>
+        <br><strong>Portfolio</strong>
+      </a>
+    </td>
+    <td align="center" width="140">
+      <a href="https://ko-fi.com/hamzaezzouek">
+        <img src="https://img.icons8.com/external-tal-revivo-color-tal-revivo/96/external-ko-fi-a-free-and-supportive-way-to-fund-your-creative-work-logo-color-tal-revivo.png" width="65" height="65" alt="Ko-fi"/>
+        <br><strong>Ko-fi</strong>
+      </a>
+    </td>
+  </tr>
+</table>
 
-### Format Recommandé
+<br/>
 
-**Simple (ville seule) :**
+**💼 Open to collaborations, freelance missions, and exciting tech opportunities! 🚀**
+
+</div>
+
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
+
+## <img src="https://media2.giphy.com/media/QssGEmpkyEOhBCb7e1/giphy.gif" width="32"> Tech Stack & Expertise
+
+<div align="center">
+
+### 🎨 Frontend Development
+
+<img src="https://skillicons.dev/icons?i=html,css,js,ts,react,angular,nextjs,tailwind,bootstrap,materialui,vite,redux&perline=12" />
+
+### ⚙️ Backend Development
+
+<img src="https://skillicons.dev/icons?i=nodejs,express,php,laravel,java,spring,python,django,fastapi&perline=9" />
+
+### 📱 Mobile Development
+
+<img src="https://skillicons.dev/icons?i=flutter,dart,kotlin,androidstudio,firebase&perline=8" />
+
+### 🗄️ Database & Storage
+
+<img src="https://skillicons.dev/icons?i=mongodb,postgres,mysql,redis,firebase,supabase&perline=8" />
+
+### 🔧 DevOps & Tools
+
+<img src="https://skillicons.dev/icons?i=git,github,gitlab,docker,aws,vercel,vscode,figma,postman,linux&perline=10" />
+
+</div>
+
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
+
+## <img src="https://media.giphy.com/media/iY8CRBdQXODJSCERIr/giphy.gif" width="35"> GitHub Stats & Analytics
+
+<div align="center">
+  
+<img width="49%" src="https://github-readme-stats.vercel.app/api?username=HAMZAZAWAK17&show_icons=true&count_private=true&hide_border=true&title_color=00E5FF&icon_color=00E5FF&text_color=FFFFFF&bg_color=0D1117&include_all_commits=true&border_radius=10" alt="GitHub Stats" />
+<img width="49%" src="https://streak-stats.demolab.com?user=HAMZAZAWAK17&theme=dark&hide_border=true&background=0D1117&stroke=00E5FF&ring=00E5FF&fire=00E5FF&currStreakNum=00E5FF&sideNums=00E5FF&dates=FFFFFF&border_radius=10" alt="GitHub Streak" />
+
+<img width="49%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=HAMZAZAWAK17&layout=compact&hide_border=true&title_color=00E5FF&text_color=FFFFFF&bg_color=0D1117&langs_count=10&border_radius=10&card_width=400" alt="Top Languages" />
+<img width="49%" src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=HAMZAZAWAK17&theme=transparent&utcOffset=1" alt="Productive Time" />
+
+<!-- Contribution Activity Graph -->
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=HAMZAZAWAK17&bg_color=0d1117&color=00E5FF&line=00E5FF&point=FFFFFF&area=true&hide_border=true&custom_title=📊%20Contribution%20Activity%20Graph&radius=10" width="100%" alt="Contribution Graph" />
+
+<!-- Additional Stats Cards -->
+<img width="32%" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=HAMZAZAWAK17&theme=transparent" alt="Repos Per Language" />
+<img width="32%" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=HAMZAZAWAK17&theme=transparent" alt="Most Commit Language" />
+<img width="32%" src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=HAMZAZAWAK17&theme=transparent" alt="Profile Stats" />
+
+</div>
+
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
+
+## <img src="https://media.giphy.com/media/LnQjpWaON8nhr21vNW/giphy.gif" width="35"> Achievements & Trophies
+
+<div align="center">
+
+<img src="https://github-profile-trophy.vercel.app/?username=HAMZAZAWAK17&theme=algolia&no-frame=false&no-bg=false&margin-w=15&margin-h=15&column=4" width="100%" alt="Trophies" />
+
+<br/><br/>
+
+<!-- Achievement Badges -->
+<img src="https://img.shields.io/badge/🏆-Open%20Source%20Contributor-gold?style=for-the-badge&labelColor=000000" alt="Contributor"/>
+<img src="https://img.shields.io/badge/⭐-Code%20Quality%20Advocate-blue?style=for-the-badge&labelColor=000000" alt="Quality"/>
+<img src="https://img.shields.io/badge/🚀-Innovation%20Leader-purple?style=for-the-badge&labelColor=000000" alt="Innovation"/>
+<img src="https://img.shields.io/badge/💻-Full%20Stack%20Expert-green?style=for-the-badge&labelColor=000000" alt="Expert"/>
+
+</div>
+
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
+
+## 💡 Core Values & Expertise
+
+<div align="center">
+
+| 🎯 Focus Area | 💪 Strength |
+|:---:|:---:|
+| ✨ **Clean Architecture** | Scalable & Maintainable Code |
+| 🎨 **UI/UX Excellence** | Pixel-Perfect & Smooth Interfaces |
+| 🧠 **Problem Solving** | Analytical & Creative Solutions |
+| 📱 **Mobile-First** | Responsive & User-Centric Design |
+| ⚡ **Performance** | Optimized & Fast Applications |
+| 🔒 **Security** | Best Practices & Safe Code |
+| 📚 **Innovation** | Continuous Learning & Growth |
+
+</div>
+
+---
+
+## 📈 Skill Proficiency
+
+<div align="center">
+
+```text
+Frontend Development    ████████████████████░   95%
+Backend Engineering     ███████████████████░░   90%
+Mobile Development      ██████████████████░░░   85%
+Database Management     ██████████████████░░░   85%
+UI/UX Design           ███████████████████░░   90%
+DevOps & Cloud         ████████████████░░░░░   80%
 ```
-Casablanca
-Paris
-Tokyo
-```
 
-**Avec pays (plus précis) :**
-```
-Casablanca, Morocco
-Paris, France
-Tokyo, Japan
-```
+</div>
 
-**Avec région :**
-```
-Nice, Provence, France
-Miami, Florida, USA
-```
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
 
-### Orthographe
+## 🚀 Featured Projects
 
-#### ✅ Correct
-- Casablanca (pas Càsablanca)
-- Marrakech (pas Marrakesh)
-- Beijing (pas Pékin)
-- Munich (pas München)
+<div align="center">
 
-#### ❌ À Éviter
-- Accents non standard
-- Caractères spéciaux
-- Abréviations non reconnues
+<a href="https://github.com/HAMZAZAWAK17/WethearMap">
+  <img src="https://github-readme-stats.vercel.app/api/pin/?username=HAMZAZAWAK17&repo=WethearMap&theme=dark&hide_border=true&bg_color=0D1117&title_color=00E5FF&icon_color=00E5FF&text_color=FFFFFF&border_radius=10" />
+</a>
 
-### Noms Alternatifs
+</div>
 
-Certaines villes ont plusieurs noms acceptés :
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
 
-| Ville | Noms Acceptés |
-|-------|---------------|
-| Pékin | Beijing, Peking |
-| Bombay | Mumbai |
-| Calcutta | Kolkata |
-| Saigon | Ho Chi Minh City |
-| Constantinople | Istanbul |
+## ☕ Support My Work
 
-## 🔍 Recherche Avancée
+<div align="center">
 
-### Par Code Postal (certains pays)
-```
-75001, France (Paris)
-10001, USA (New York)
-```
+<p>💖 If you find my projects valuable or want to support my open-source contributions:</p>
 
-### Par Coordonnées
-Cliquez directement sur la carte !
+<a href="https://ko-fi.com/hamzaezzouek">
+  <img src="https://img.shields.io/badge/Ko--fi-Support%20Me-FF5E5B?style=for-the-badge&logo=ko-fi&logoColor=white" alt="Ko-fi"/>
+</a>
 
-### Par Région
-```
-Provence, France
-California, USA
-Bavaria, Germany
-```
+<br/><br/>
 
-## ⚠️ Villes Problématiques
+<img src="https://user-images.githubusercontent.com/74038190/216122041-518ac897-8d92-4c6b-9b3f-ca01dcaf38ee.png" width="200" alt="Coffee"/>
 
-Certaines villes peuvent nécessiter plus de précision :
+</div>
 
-### Villes avec Homonymes
-- **Paris** : Paris, France OU Paris, Texas, USA
-- **London** : London, UK OU London, Ontario, Canada
-- **Alexandria** : Alexandria, Egypt OU Alexandria, Virginia, USA
+---
 
-**Solution :** Ajoutez le pays
-```
-Paris, France
-London, UK
-Alexandria, Egypt
-```
+<div align="center">
 
-### Petites Villes
-Pour les petites villes, ajoutez la région ou le pays :
-```
-Chefchaouen, Morocco
-Colmar, France
-Bruges, Belgium
-```
+### 💭 Quote of the Day
 
-## 🎯 Test Rapide
+<img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=dark" alt="Random Dev Quote"/>
 
-Pour tester si votre recherche fonctionne, essayez ces villes dans l'ordre :
+</div>
 
-1. **Paris** - Ville très connue, devrait toujours fonctionner
-2. **Casablanca** - Ville marocaine majeure
-3. **Tokyo** - Test international
-4. **Votre ville** - Essayez avec et sans le pays
+---
 
-## 💡 Astuces
+<div align="center">
 
-### Si une ville n'est pas trouvée :
+<img src="https://capsule-render.vercel.app/api?type=waving&height=120&section=footer&color=gradient&customColorList=6,11,20" width="100%"/>
 
-1. **Essayez en anglais**
-   - Maroc → Morocco
-   - Lisbonne → Lisbon
-   - Moscou → Moscow
+<br/>
 
-2. **Ajoutez le pays**
-   - Fes → Fes, Morocco
-   - Nice → Nice, France
+<img src="https://user-images.githubusercontent.com/74038190/212284158-e840e285-664b-44d7-b79b-e264b5e54825.gif" width="400">
 
-3. **Vérifiez l'orthographe**
-   - Marrakech (pas Marrakesh)
-   - Casablanca (pas Casa Blanca)
+<br/><br/>
 
-4. **Utilisez le nom officiel**
-   - Ho Chi Minh City (pas Saigon)
-   - Mumbai (pas Bombay)
+✨ **Crafted with passion, precision, and countless cups of coffee ☕** ✨
 
-5. **Cliquez sur la carte**
-   - Trouvez la ville visuellement
-   - Cliquez dessus
-   - L'application trouve automatiquement le nom
+<br/>
 
-## 🌟 Villes Recommandées pour Tester
+*💚 Open Source Advocate | 🚀 Innovation Enthusiast | 💡 Problem Solver*
 
-Ces villes sont garanties de fonctionner :
+<br/>
 
-### Débutant
-- Paris
-- London
-- New York
+<img src="https://img.shields.io/badge/Last%20Updated-December%202025-00E5FF?style=for-the-badge" alt="Last Updated"/>
+<img src="https://img.shields.io/badge/Made%20with-💜-blueviolet?style=for-the-badge" alt="Made with Love"/>
 
-### Intermédiaire
-- Casablanca
-- Tokyo
-- Sydney
+<br/><br/>
 
-### Avancé
-- Chefchaouen, Morocco
-- Reykjavik, Iceland
-- Ulaanbaatar, Mongolia
+**⭐ Star this profile if you found it inspiring! ⭐**
 
-## 📊 Statistiques
-
-L'API Google Geocoding reconnaît :
-- ✅ Plus de 100 millions de lieux
-- ✅ Toutes les villes de plus de 100 000 habitants
-- ✅ La plupart des villes de plus de 10 000 habitants
-- ⚠️ Certaines petites villes nécessitent le pays
-
-## 🆘 Toujours pas de Résultat ?
-
-Si aucune ville ne fonctionne :
-1. Vérifiez votre connexion Internet
-2. Consultez le fichier `DEPANNAGE_RECHERCHE.md`
-3. Vérifiez que la Geocoding API est activée
-4. Testez votre clé API dans le navigateur
-
-## ✅ Checklist de Test
-
-- [ ] Paris fonctionne
-- [ ] Casablanca fonctionne
-- [ ] Tokyo fonctionne
-- [ ] Ma ville fonctionne
-- [ ] Les villes avec pays fonctionnent (ex: Nice, France)
-- [ ] Le clic sur la carte fonctionne
-- [ ] La localisation GPS fonctionne
-
-Si tous ces tests passent, votre application fonctionne parfaitement ! 🎉
+</div>

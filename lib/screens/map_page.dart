@@ -301,7 +301,7 @@ class _MapPageState extends State<MapPage> {
           // Bouton de localisation
           Positioned(
             right: 16,
-            bottom: 200,
+            bottom: 370, // Au-dessus des 4 boutons de type de carte (4 * 64 + 80 = 336)
             child: FloatingActionButton(
               heroTag: 'location_btn',
               onPressed: _isLoadingLocation ? null : _getCurrentLocation,

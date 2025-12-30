@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:provider/provider.dart';
 import '../utils/color_helper.dart';
-import '../services/location_service.dart';
-import '../services/storage_service.dart';
 import 'map_page.dart';
 import 'settings_page.dart';
-import 'weather_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -131,30 +127,13 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                           ),
                           const SizedBox(height: 60),
 
-                          // Indicateur de chargement ou bouton
-                          if (_isCheckingLocation)
-                            Column(
-                              children: [
-                                const CircularProgressIndicator(
-                                  valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-                                ),
-                                const SizedBox(height: 20),
-                                Text(
-                                  'Détection de votre position...',
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    color: AppColors.white90,
-                                  ),
-                                ),
-                              ],
-                            )
-                          else
-                            _buildGlowingButton(context),
+                          // Bouton d'accès
+                          _buildGlowingButton(context),
                           
                           const SizedBox(height: 40),
 
                           // Fonctionnalités
-                          if (!_isCheckingLocation) _buildFeatures(),
+                          _buildFeatures(),
                         ],
                       ),
                     ),
