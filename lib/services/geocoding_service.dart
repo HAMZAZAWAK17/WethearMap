@@ -163,4 +163,10 @@ class GeocodingService {
       return null;
     }
   }
+
+  /// Alias pour getCityName (compatibilité)
+  static Future<String> getCityNameFromCoordinates(double lat, double lon) async {
+    final cityName = await getCityName(LatLng(lat, lon));
+    return cityName ?? 'Unknown Location';
+  }
 }
